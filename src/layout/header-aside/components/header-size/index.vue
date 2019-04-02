@@ -1,14 +1,14 @@
 <template>
-  <el-dropdown placement="bottom" size="small" @command="handleChange">
-    <el-button class="d2-mr btn-text can-hover" type="text">
+  <Dropdown placement="bottom" @on-click="handleChange">
+    <Button class="d2-mr btn-text can-hover" type="text">
       <d2-icon name="font" style="font-size: 16px;"/>
-    </el-button>
-    <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">
+    </Button>
+    <DropdownMenu slot="list">
+      <DropdownItem v-for="item in options" :key="item.value" :name="item.value">
         <d2-icon :name="iconName(item.value)" class="d2-mr-5"/>{{item.label}}
-      </el-dropdown-item>
-    </el-dropdown-menu>
-  </el-dropdown>
+      </DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
 </template>
 
 <script>
@@ -38,14 +38,14 @@ export default {
         // https://github.com/d2-projects/d2-admin/pull/129
         if (oldVal) {
           // 这个情况在已经加载完页面 用户改变了尺寸时触发
-          this.$ELEMENT.size = val
+          this.$IVIEW.size = val
           // 由于已经加载过设置 需要清空缓存设置
           this.pageKeepAliveClean()
           // 由于已经加载过设置 需要刷新此页面
           this.$router.replace('/refresh')
         } else {
           // 这个情况在刷新页面时触发
-          this.$ELEMENT.size = val
+          this.$IVIEW.size = val
         }
       },
       immediate: true

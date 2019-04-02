@@ -1,0 +1,18 @@
+// element 样式补丁
+.ivu-card {
+  &.ivu-card-bordered {
+    box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+  }
+  &:hover {
+    box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+  }
+}
+
+.ivu-menu-horizontal {
+  border-bottom: none !important;
+}
+
+.ivu-tabs-tab:focus.ivu-tabs-tab-active.ivu-tabs-tab-focused:not(:active) {
+  box-shadow: none !important;
+  background-color: red !important;
+}

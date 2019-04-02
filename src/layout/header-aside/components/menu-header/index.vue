@@ -1,13 +1,13 @@
 <template>
   <div class="d2-theme-header-menu" ref="page" :class="{'is-scrollable': isScroll}" flex="cross:center">
     <div class="d2-theme-header-menu__content" ref="content" flex-box="1" flex>
-      <div class="d2-theme-header-menu__scroll" ref="scroll" flex-box="0" :style="'transform: translateX(' + currentTranslateX + 'px);'">
-        <el-menu mode="horizontal" :default-active="active" @select="handleMenuSelect">
+      <div class="d2-theme-header-menu__scroll" ref="scroll" flex-box="0">
+        <Menu mode="horizontal" :active-name="active" @on-select="handleMenuSelect">
           <template v-for="(menu, menuIndex) in header">
             <d2-layout-header-aside-menu-item v-if="menu.children === undefined" :menu="menu" :key="menuIndex"/>
             <d2-layout-header-aside-menu-sub v-else :menu="menu" :key="menuIndex"/>
           </template>
-        </el-menu>
+        </Menu>
       </div>
     </div>
     <div v-if="isScroll" class="d2-theme-header-menu__prev" flex-box="0" @click="scroll('left')" flex="main:center cross:center">

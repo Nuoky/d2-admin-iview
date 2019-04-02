@@ -10,21 +10,20 @@
       <d2-icon-svg
         class="panel-search__logo"
         name="d2-admin-text"/>
-      <el-autocomplete
+      <AutoComplete
         class="panel-search__input"
         ref="input"
         v-model="searchText"
-        suffix-icon="el-icon-search"
+        icon="md-search"
         placeholder="搜索页面"
-        :fetch-suggestions="querySearch"
-        :trigger-on-focus="false"
+        :filter-method="querySearch"
         :clearable="true"
         @keydown.esc.native="handleEsc"
-        @select="handleSelect">
+        @on-select="handleSelect">
         <d2-panel-search-item
           slot-scope="{ item }"
           :item="item"/>
-      </el-autocomplete>
+      </AutoComplete>
       <div class="panel-search__tip">
         您可以使用快捷键
         <span class="panel-search__key">{{hotkey.open}}</span>
@@ -37,7 +36,7 @@
       v-if="resultsList.length > 0"
       class="panel-search__results-group"
       flex-box="1">
-      <el-card>
+      <Card :bordered="false">
         <div class="panel-search__results-group-inner">
           <d2-panel-search-item
             v-for="(item, index) in resultsList"
@@ -46,7 +45,7 @@
             :hover-mode="true"
             @click.native="handleResultsGroupItemClick(item.path)"/>
         </div>
-      </el-card>
+      </Card>
     </div>
   </div>
 </template>
@@ -213,7 +212,7 @@ export default {
   .panel-search__results-group {
     overflow: auto;
     .panel-search__results-group-inner {
-      margin: -20px;
+      margin: -10px;
     }
   }
 }

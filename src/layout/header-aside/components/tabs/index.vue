@@ -10,50 +10,49 @@
             :menulist="tagName === '/index' ? contextmenuListIndex : contextmenuList"
             @rowClick="contextmenuClick"/>
         </d2-contextmenu>
-        <el-tabs
+        <Tabs
           class="d2-multiple-page-control"
           :value="current"
           type="card"
           :closable="true"
-          @tab-click="handleClick"
-          @edit="handleTabsEdit"
+          @on-click="handleClick"
+          @on-tab-remove="handleTabsEdit"
           @contextmenu.native="handleContextmenu">
-          <el-tab-pane
+          <TabPane
             v-for="page in opened"
             :key="page.fullPath"
             :label="page.meta.title || '未命名'"
             :name="page.fullPath"/>
-        </el-tabs>
+        </Tabs>
       </div>
     </div>
     <div
       class="d2-multiple-page-control-btn"
       flex-box="0">
-      <el-dropdown
-        size="default"
-        split-button
-        @click="closeAll"
-        @command="command => handleControlItemClick(command)">
-        <d2-icon name="times-circle"/>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="left">
+      <Dropdown
+        @on-click="name => handleControlItemClick(name)">
+        <Button>
+            <Icon type="ios-arrow-down"></Icon>
+        </Button>
+        <DropdownMenu slot="list">
+          <DropdownItem name="left">
             <d2-icon name="arrow-left" class="d2-mr-10"/>
             关闭左侧
-          </el-dropdown-item>
-          <el-dropdown-item command="right">
+          </DropdownItem>
+          <DropdownItem name="right">
             <d2-icon name="arrow-right" class="d2-mr-10"/>
             关闭右侧
-          </el-dropdown-item>
-          <el-dropdown-item command="other">
+          </DropdownItem>
+          <DropdownItem name="other">
             <d2-icon name="times" class="d2-mr-10"/>
             关闭其它
-          </el-dropdown-item>
-          <el-dropdown-item command="all">
+          </DropdownItem>
+          <DropdownItem name="all">
             <d2-icon name="times-circle" class="d2-mr-10"/>
             全部关闭
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
     </div>
   </div>
 </template>
@@ -156,7 +155,7 @@ export default {
      */
     handleClick (tab, event) {
       // 找到点击的页面在 tag 列表里是哪个
-      const page = this.opened.find(page => page.fullPath === tab.name)
+      const page = this.opened.find(page => page.fullPath === tab)
       const { name, params, query } = page
       if (page) {
         this.$router.push({ name, params, query })

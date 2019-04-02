@@ -76,18 +76,16 @@
       :filter-method="filterType"
       filter-placement="bottom">
       <template slot-scope="scope">
-        <el-tag
+        <Tag
           v-if="scope.row.type === 'error'"
-          size="mini"
-          type="danger">
+          color="warning">
           <d2-icon name="bug"/> Bug
-        </el-tag>
-        <el-tag
+        </Tag>
+        <Tag
           v-else
-          size="mini"
-          type="info">
+          color="blue">
           <d2-icon name="dot-circle-o"/> Log
-        </el-tag>
+        </Tag>
       </template>
     </el-table-column>
 
