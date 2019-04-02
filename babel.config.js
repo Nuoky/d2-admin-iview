@@ -4,6 +4,13 @@ module.exports = {
   ],
   plugins: [
     // https://babeljs.io/docs/en/babel-plugin-transform-runtime/
-    '@babel/plugin-transform-runtime'
+    '@babel/plugin-transform-runtime',
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
   ]
 }
