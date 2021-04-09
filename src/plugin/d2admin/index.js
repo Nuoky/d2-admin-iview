@@ -1,6 +1,7 @@
-// Element
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// iView
+import iView from 'iview'
+import { Table, TableColumn } from 'element-ui'
+import 'iview/dist/styles/iview.css'
 // flex 布局库
 import 'flex.css'
 // 组件
@@ -27,8 +28,11 @@ export default {
     Vue.prototype.$version = process.env.VUE_APP_VERSION
     // 构建时间
     Vue.prototype.$buildTime = process.env.VUE_APP_BUILD_TIME
-    // Element
-    Vue.use(ElementUI)
+    // iView
+    Vue.use(iView)
+    // Element 表格
+    Vue.use(Table)
+    Vue.use(TableColumn)
     // 过滤器 日期模块
     Vue.use(d2VueFiltersDate)
     // 插件

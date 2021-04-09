@@ -1,10 +1,10 @@
 // 减小弹出菜单的项目高度
-.el-menu--popup {
-  .el-menu-item {
+.ivu-menu-drop-list {
+  .ivu-menu-item {
     height: 36px;
     line-height: 36px;
   }
-  .el-submenu__title {
+  .ivu-menu-submenu-title {
     height: 36px;
     line-height: 36px;
   }
@@ -29,7 +29,7 @@
     .d2-theme-header {
       height: 60px;
       .d2-theme-header-menu {
-        overflow: hidden;
+        // overflow: hidden;
         &.is-scrollable {
           position: relative;
           padding: 0 20px;
@@ -40,7 +40,7 @@
           }
         }
         .d2-theme-header-menu__content {
-          overflow: hidden;
+          // overflow: hidden;
           .d2-theme-header-menu__scroll {
             white-space: nowrap;
             position: relative;
@@ -138,7 +138,7 @@
         }
       }
       // [菜单] 顶栏
-      .el-menu {
+      .ivu-menu {
         float: left;
         border-bottom: none;
         background-color: transparent;
@@ -149,15 +149,13 @@
             margin-right: 4px;
           }
         }
-        .el-menu-item {
+        .ivu-menu-item {
           @extend %header-menu-item;
           border-bottom: none;
         }
-        .el-submenu {
+        .ivu-menu-submenu {
           @extend %header-menu-item;
-          .el-submenu__title {
-            border-bottom: none;
-          }
+          border-bottom: none;
         }
       }
       // 顶栏右侧的按钮
@@ -186,23 +184,23 @@
           font-size: 16px;
         }
         // [菜单] 正常状态
-        .el-menu {
+        .ivu-menu {
           @extend %unable-select;
           background-color: transparent;
           border-right: none;
-          .el-menu-item {
+          .ivu-menu-item {
             i {
               @extend %d2-theme-container-aside-menu-icon;
             }
           }
         }
-        .el-submenu {
+        .ivu-menu-submenu {
           @extend %unable-select;
-          .el-submenu__title {
+          .ivu-menu-submenu-title {
             i {
               @extend %d2-theme-container-aside-menu-icon;
             }
-            .el-submenu__icon-arrow {
+            .ivu-menu-submenu-title-icon {
               margin-top: -10px;
             }
           }
@@ -222,13 +220,6 @@
             font-size: 14px;
           }
         }
-        // [菜单] 折叠状态
-        .el-menu--collapse {
-          background-color: transparent;
-          .el-submenu__title {
-            text-align: center;
-          }
-        }
       }
       // 右下 主体
       .d2-theme-container-main {
@@ -242,10 +233,10 @@
               position: relative;
               .d2-multiple-page-control-content-inner {
                 .d2-multiple-page-control {
-                  .el-tabs__header.is-top {
+                  .ivu-tabs-bar {
                     margin: 0px;
                   }
-                  .el-tabs__nav {
+                  .ivu-tabs-nav {
                     overflow: hidden;
                   }
                 }

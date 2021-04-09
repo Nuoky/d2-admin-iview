@@ -1,16 +1,15 @@
 <template>
   <div class="d2-layout-header-aside-menu-side">
-    <el-menu
-      :collapse="asideCollapse"
-      :unique-opened="true"
-      :default-active="active"
+    <Menu
+      :accordion="true"
+      :active-name="active"
       ref="menu"
-      @select="handleMenuSelect">
+      @on-select="handleMenuSelect">
       <template v-for="(menu, menuIndex) in aside">
         <d2-layout-header-aside-menu-item v-if="menu.children === undefined" :menu="menu" :key="menuIndex"/>
         <d2-layout-header-aside-menu-sub v-else :menu="menu" :key="menuIndex"/>
       </template>
-    </el-menu>
+    </Menu>
     <div v-if="aside.length === 0 && !asideCollapse" class="d2-layout-header-aside-menu-empty" flex="dir:top main:center cross:center">
       <d2-icon name="inbox"/>
       <span>没有侧栏菜单</span>

@@ -1,6 +1,6 @@
 import store from '@/store'
 import axios from 'axios'
-import { Message } from 'element-ui'
+import { Message } from 'iview'
 import util from '@/libs/util'
 
 // 创建一个错误

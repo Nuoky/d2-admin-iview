@@ -21,19 +21,19 @@
       prop="address"
       align="center">
       <template slot-scope="scope">
-        <el-button
+        <Button
           v-if="activeName === scope.row.name"
           type="success"
-          icon="el-icon-check"
-          round>
+          icon="md-checkmark"
+          shape="circle">
           已激活
-        </el-button>
-        <el-button
+        </Button>
+        <Button
           v-else
-          round
+          shape="circle"
           @click="handleSelectTheme(scope.row.name)">
           使用
-        </el-button>
+        </Button>
       </template>
     </el-table-column>
   </el-table>
